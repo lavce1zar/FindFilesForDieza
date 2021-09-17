@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace FindFilesForDieza
 {
@@ -10,23 +11,31 @@ namespace FindFilesForDieza
     {
         static void Main(string[] args)
         {
+            string init_path = Directory.GetCurrentDirectory();
+                        
             if (args.Length < 1)
             {
                 Console.WriteLine("Для применения программы необходимо ввести разрешение искомых файлов. Пример: " + '.' + "exe");
                 return;
             }
-
-            if (args[0][0] != '.')
-            {
-                Console.WriteLine("Введено некорректное разрешение искомых файлов. Разрешение должно начинаться с .");
-                return;
-            }
-            else
-            {
-                Console.WriteLine("Введеное разрешение искомых файлов: " + args[0]);
-            }
             
+            FilePermission[] allFiles = new FilePermission[args.Length];
 
+            for (int i = 0; i < args.Length; i++)
+            {
+                if (args[i][0] != '.')
+                {
+                    Console.WriteLine("Введено некорректное разрешение искомых файлов. Разрешение должно начинаться с .");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("Введеное разрешение искомых файлов: " + args[i]);
+                    allFiles[i] = new FilePermission(args[i]);
+                }
+            }
+            Console.WriteLine("Программа запущена из каталога: " + init_path);
+            allFiles[0].FindFiles(init_path);
 
         }
     }

@@ -1,0 +1,7 @@
+C:\Users\user\source\repos\FindFilesForDieza\obj\Debug\FindFilesForDieza.csprojAssemblyReference.cache
+C:\Users\user\source\repos\FindFilesForDieza\obj\Debug\FindFilesForDieza.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\FindFilesForDieza\bin\Debug\FindFilesForDieza.exe.config
+C:\Users\user\source\repos\FindFilesForDieza\bin\Debug\FindFilesForDieza.exe
+C:\Users\user\source\repos\FindFilesForDieza\bin\Debug\FindFilesForDieza.pdb
+C:\Users\user\source\repos\FindFilesForDieza\obj\Debug\FindFilesForDieza.exe
+C:\Users\user\source\repos\FindFilesForDieza\obj\Debug\FindFilesForDieza.pdb
