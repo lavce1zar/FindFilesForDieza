@@ -11,8 +11,7 @@ namespace FindFilesForDieza
     {
         static void Main(string[] args)
         {
-            string init_path = Directory.GetCurrentDirectory();
-                        
+            
             if (args.Length < 1)
             {
                 Console.WriteLine("Для применения программы необходимо ввести разрешение искомых файлов. Пример: " + '.' + "exe");
@@ -34,9 +33,21 @@ namespace FindFilesForDieza
                     allFiles[i] = new FilePermission(args[i]);
                 }
             }
-            Console.WriteLine("Программа запущена из каталога: " + init_path);
-            allFiles[0].FindFiles(init_path);
+            Console.WriteLine();
 
+            Console.WriteLine("Программа запущена из каталога: " + Directory.GetCurrentDirectory());
+            Console.WriteLine();
+
+            foreach (FilePermission f in allFiles)
+            {
+                f.FindFiles();
+                f.ShowFiles();
+                Console.WriteLine("Общее количество искомых файлов: {0}\n" +
+                                   "Суммарный размер искомых файлов: {1} bytes \n" +
+                                   "Суммарное количество строк в искомых файлах: {2}", f.CountFiles(), f.CountSize(), f.CountLines());
+                Console.WriteLine();
+            }
+            
         }
     }
 }
